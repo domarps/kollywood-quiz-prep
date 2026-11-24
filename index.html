@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kollywood Quiz Prep</title>
+<meta name="description" content="Practice the Freeya Vidu Mame Kollywood quiz teasers, with all clips, pictures and the group's answers.">
+<style>
+:root{--bg:#faf6ef;--card:#fff;--ink:#1e1a14;--mut:#6d655a;--line:#e7dfd1;--acc:#b23a1e;--accs:#f6dfd7;--ok:#1d7a4c;--bad:#b23a1e;--qm:#fff3d6;color-scheme:light}
+@media (prefers-color-scheme:dark){:root{--bg:#15130f;--card:#201d17;--ink:#f2ece1;--mut:#a59c8c;--line:#37312a;--acc:#ff8d6e;--accs:#3d261f;--ok:#62d19d;--bad:#ff8d6e;--qm:#2f2818;color-scheme:dark}}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI","Noto Sans Tamil",sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:840px;margin:auto;padding:0 16px}
+header{padding:22px 0 6px}h1{margin:0;font:700 27px/1.15 Georgia,"Noto Serif Tamil",serif;letter-spacing:-.3px}h1 span{color:var(--acc)}
+.sub{color:var(--mut);font-size:14px;margin-top:4px}
+nav{display:flex;gap:6px;margin:14px 0 4px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:5}
+nav button{flex:1;padding:10px 6px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;font:600 14px system-ui;cursor:pointer}
+nav button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.bar{height:8px;background:var(--line);border-radius:6px;overflow:hidden;display:flex;margin-top:6px}.bar i{display:block;height:100%}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}
+select,input[type=search]{padding:9px 10px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:8px;font-size:14px;max-width:100%}
+input[type=search]{flex:1;min-width:180px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;margin:12px 0}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center;font-size:12px;color:var(--mut);margin-bottom:10px}
+.num{font:700 15px Georgia,serif;color:var(--ink)}
+.tag{background:var(--accs);color:var(--acc);border-radius:20px;padding:2px 9px;font-weight:600}
+.tag.not{background:var(--line);color:var(--ink)}
+.q{white-space:pre-wrap;font:17px/1.6 Georgia,"Noto Serif Tamil",serif;overflow-wrap:anywhere}
+.q a,.msg a{color:var(--acc)}
+.media{display:flex;flex-direction:column;gap:10px;margin-top:12px}
+.media img,.media video{max-width:100%;max-height:460px;border-radius:10px;display:block;background:var(--line);align-self:flex-start}
+.media audio{width:100%}
+.miss{margin-top:12px;font-size:13px;color:var(--mut);border:1px dashed var(--line);border-radius:8px;padding:8px 10px}
+.btn{padding:11px 18px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink);font:600 15px system-ui;cursor:pointer}
+.btn.p{background:var(--acc);color:#fff;border-color:var(--acc)}.btn.g{color:var(--ok);border-color:var(--ok)}.btn.b{color:var(--bad);border-color:var(--bad)}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.th{margin-top:16px;border-top:1px dashed var(--line);padding-top:12px}
+.th h4{margin:0 0 8px;font-size:13px;color:var(--mut);text-transform:uppercase;letter-spacing:.5px}
+.msg{margin:6px 0;padding:6px 10px;border-radius:8px;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.msg b{color:var(--mut);font-weight:600}.msg.qm{background:var(--qm)}
+.msg .media{margin-top:6px}.msg .media img,.msg .media video{max-height:300px}
+.sticky{position:sticky;bottom:0;background:var(--bg);padding:10px 0 calc(10px + env(safe-area-inset-bottom));border-top:1px solid var(--line);margin-top:12px}
+.stat{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}.stat .card{text-align:center;margin:0}.stat big{display:block;font-size:28px;font-weight:700}
+details.it{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:8px 0;padding:10px 14px}details.it summary{cursor:pointer;overflow-wrap:anywhere}
+.ic{font-size:13px;color:var(--mut)}
+footer{padding:10px 0 40px;font-size:12px;color:var(--mut)}footer a{color:var(--acc);cursor:pointer}
+kbd{font:11px system-ui;border:1px solid var(--line);border-radius:4px;padding:0 4px}
+</style></head><body>
+<div class="wrap">
+<header><h1>Kollywood <span>Quiz Prep</span></h1><div class="sub" id="sub"></div></header>
+<nav><button data-v="p">Practice</button><button data-v="b">Browse</button><button data-v="s">Progress</button></nav>
+<main id="m"></main>
+<footer id="ft"></footer>
+</div>
+<script src="data.js"></script>
+<script>
+const $=s=>document.querySelector(s),KEY='kq2-progress';
+let P={};try{P=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(P))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const link=s=>esc(s).replace(/https?:\/\/[^\s<]+/g,u=>`<a href="${u}" target="_blank" rel="noopener">${u.length>60?u.slice(0,57)+'…':u}</a>`);
+const TAGS=[...new Set(D.flatMap(x=>x.tags))].sort();
+let view='p',f={tag:'',src:'',st:'all',ord:'shuffle'},pool=[],cur=null,shown=false,sq='',lim=40;
+function mh(fn,auto){const u='media/'+encodeURIComponent(fn);
+ if(fn.endsWith('.m4a'))return `<audio controls preload="none" src="${u}"></audio>`;
+ if(fn.endsWith('.mp4')){const gif=fn.includes('-GIF-');return `<video ${gif?`muted loop playsinline ${auto?'autoplay':''} controls`:'controls playsinline'} preload="metadata" src="${u}"></video>`}
+ return `<a href="${u}" target="_blank" rel="noopener"><img loading="lazy" src="${u}" alt="Picture from the chat"></a>`}
+const icons=x=>(x.m||[]).map(f=>f.endsWith('.m4a')?'🔊':f.endsWith('.mp4')?'🎬':'🖼').join('');
+function card(x){const st=P[x.id];return `<div class="meta"><span class="num">${x.n?'#'+x.n:'#NOT'}</span><span>${esc(x.d)}</span><span>by ${esc(x.by)}</span>${x.k=='N'?'<span class="tag not">Member #NOT</span>':''}${x.tags.map(t=>`<span class="tag">${t}</span>`).join('')}${st?`<span>${st=='got'?'✓ got it':'✗ missed'}</span>`:''}</div><div class="q">${link(x.q)}</div>${x.m?`<div class="media">${x.m.map(f=>mh(f,true)).join('')}</div>`:''}${x.miss?`<div class="miss">This question used ${esc(x.miss)} that isn’t in the chat export, so it can’t be shown here.</div>`:''}`}
+function thread(x){return `<div class="th"><h4>What the group said (${x.th.length} messages)</h4>${x.th.length?x.th.map(m=>`<div class="msg ${m[2]?'qm':''}"><b>${esc(m[0])}${m[2]?' (quizmaster)':''}:</b> ${m[1]?link(m[1]):''}${m[3]&&m[3].length?`<div class="media">${m[3].map(f=>mh(f,false)).join('')}</div>`:''}</div>`).join(''):'<div class="msg">No discussion recorded.</div>'}</div>`}
+function match(x){return (!f.tag||x.tags.includes(f.tag))&&(!f.src||x.k==f.src)}
+function build(){pool=D.filter(x=>match(x)&&(f.st=='all'||(f.st=='unseen'&&!P[x.id])||(f.st=='missed'&&P[x.id]=='miss')));
+ if(f.ord=='shuffle')for(let i=pool.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[pool[i],pool[j]]=[pool[j],pool[i]]}
+ if(f.ord=='new')pool.reverse();cur=pool[0]||null;shown=false}
+const opt=(v,l,s)=>`<option value="${v}" ${s==v?'selected':''}>${l}</option>`;
+function filt(full){return `<div class="filters"><select id="fsrc">${opt('','All questions',f.src)}${opt('T','Official teasers',f.src)}${opt('N','Member #NOTs',f.src)}</select><select id="ftag"><option value="">All types</option>${TAGS.map(t=>opt(t,t,f.tag)).join('')}</select>${full?`<select id="fst">${opt('all','Seen and unseen',f.st)}${opt('unseen','Unseen only',f.st)}${opt('missed','Missed only',f.st)}</select><select id="ford">${opt('shuffle','Shuffled',f.ord)}${opt('old','Oldest first',f.ord)}${opt('new','Newest first',f.ord)}</select>`:''}</div>`}
+function bar(){const g=D.filter(x=>P[x.id]=='got').length,m=D.filter(x=>P[x.id]=='miss').length;return `<div class="bar" title="${g} got, ${m} missed"><i style="width:${g/D.length*100}%;background:var(--ok)"></i><i style="width:${m/D.length*100}%;background:var(--bad)"></i></div>`}
+function hook(re){[['fsrc','src'],['ftag','tag'],['fst','st'],['ford','ord']].forEach(([id,k])=>{const e=document.getElementById(id);if(e)e.onchange=()=>{f[k]=e.value;lim=40;if(view=='p')build();render()}})}
+function render(){document.querySelectorAll('nav button').forEach(b=>b.classList.toggle('on',b.dataset.v==view));const m=$('#m');
+ if(view=='p'){m.innerHTML=bar()+filt(true)+(cur?`<div class="card">${card(cur)}${shown?thread(cur)+`<div class="sticky row"><button class="btn g" data-a="got">✓ Got it <kbd>G</kbd></button><button class="btn b" data-a="miss">✗ Missed <kbd>M</kbd></button></div>`:`<div class="row"><button class="btn p" data-a="show">Reveal answers <kbd>Space</kbd></button><button class="btn" data-a="skip">Skip</button></div>`}</div><div class="sub">${pool.length} left in this set</div>`:'<div class="card">Nothing left in this set. Change the filters, or reset progress at the bottom of the page.</div>');hook()}
+ if(view=='b'){const q=sq.trim().toLowerCase(),nm=q.replace(/^#/,'');const L=D.filter(x=>match(x)&&(!q||String(x.n)==nm||(x.q+' '+x.th.map(t=>t[1]).join(' ')).toLowerCase().includes(q)));
+  m.innerHTML=`<div class="filters"><input type="search" id="sq" placeholder="Search a number, movie, song, actor…" value="${esc(sq)}"></div>${filt(false)}<div class="sub">${L.length} questions</div>`+L.slice(0,lim).map(x=>`<details class="it" data-id="${x.id}"><summary><b>${x.n?'#'+x.n:'#NOT'}</b> <span class="ic">${icons(x)}</span> ${esc(x.q.replace(/^\W*(NOT\W*)?#?\W*te+a?s+e?r\W{0,4}\d+\W*/i,'').replace(/\s+/g,' ').slice(0,100))}</summary><div class="body"></div></details>`).join('')+(L.length>lim?`<div class="row"><button class="btn" id="more">Show more (${L.length-lim} left)</button></div>`:'');
+  const s=$('#sq');s.oninput=()=>{sq=s.value;lim=40;const p=s.selectionStart;render();const n=$('#sq');n.focus();n.setSelectionRange(p,p)};hook();
+  document.querySelectorAll('details.it').forEach(d=>d.addEventListener('toggle',()=>{const b=d.querySelector('.body');if(d.open&&!b.innerHTML){const x=D[+d.dataset.id];b.innerHTML=card(x)+thread(x)}}));
+  const mo=$('#more');if(mo)mo.onclick=()=>{lim+=40;render()}}
+ if(view=='s'){const g=D.filter(x=>P[x.id]=='got').length,mi=D.filter(x=>P[x.id]=='miss').length;
+  m.innerHTML=`${bar()}<div class="stat" style="margin-top:12px"><div class="card"><big>${g}</big>got it</div><div class="card"><big>${mi}</big>missed</div><div class="card"><big>${D.length-g-mi}</big>not tried</div></div><h3>By type</h3>`+TAGS.map(t=>{const a=D.filter(x=>x.tags.includes(t)),gg=a.filter(x=>P[x.id]=='got').length,mm=a.filter(x=>P[x.id]=='miss').length;return `<div class="card" style="margin:6px 0;padding:10px 14px"><b>${t}</b> — ${gg} got, ${mm} missed, of ${a.length}</div>`}).join('')}}
+function act(a){if(!cur)return;if(a=='show')shown=true;else if(a=='skip'){pool.push(pool.shift());cur=pool[0];shown=false}else{P[cur.id]=a;save();pool.shift();cur=pool[0]||null;shown=false}
+ document.querySelectorAll('audio,video').forEach(e=>{try{e.pause()}catch(_){}});render();if(a!='show')scrollTo(0,0)}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-a]');if(b)act(b.dataset.a);const n=e.target.closest('nav button');if(n){view=n.dataset.v;lim=40;if(view=='p')build();render();scrollTo(0,0)}});
+document.addEventListener('keydown',e=>{if(view!='p'||/INPUT|SELECT|TEXTAREA/.test(e.target.tagName))return;if(e.key==' '&&!shown){e.preventDefault();act('show')}else if(shown&&e.key.toLowerCase()=='g')act('got');else if(shown&&e.key.toLowerCase()=='m')act('miss')});
+const nm=D.filter(x=>x.m).length,nf=D.reduce((a,x)=>a+(x.m||[]).length+x.th.reduce((b,t)=>b+(t[3]||[]).length,0),0);
+$('#sub').textContent=`${D.filter(x=>x.k=='T').length} official teasers + ${D.filter(x=>x.k=='N').length} member #NOTs · ${nm} with clips or pictures · ${nf} media files in all`;
+$('#ft').innerHTML=`From the “B.A: Freeya Vidu Mame – Kollywood quiz!” WhatsApp group, Nov 2025 – Nov 2026. Each question shows the media posted with it; “Reveal answers” shows everything the group posted until the next question, including clues and answer clips. Teasers #1–32 predate the export, and #79–91 were lost to disappearing messages. Progress is saved in this browser only. <a id="rs">Reset progress</a>`;
+$('#rs').onclick=()=>{if(confirm('Clear all saved progress?')){P={};save();build();render()}};
+build();render();
+</script></body></html>
